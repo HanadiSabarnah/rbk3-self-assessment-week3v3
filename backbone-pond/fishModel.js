@@ -6,20 +6,12 @@ var Fish = Backbone.Model.extend({
     name: 'Larry',
     image: 'http://www.google.com',
     description: 'Regular old fish',
-    displayInfo: false,
-    toggle: "on"
+    displayInfo: false
   },
 
-toggleDescription:{
-	'toggle': function() {
-    if(this.model.get('toggle', 'on')){
-      return 
-      this.model.set("toggle", "of")
-    }
-    else {
-       this.model.set("toggle", "on")
-    }
-    }
+toggleDescription: function () {
+this.set("displayInfo",!this.get("displayInfo"))
+this.trigger("toggle:description",this)
 }
 
 });
